@@ -1,0 +1,17 @@
+body {
+    font-family: 'Nunito', sans-serif;
+}
+
+.width-size2{
+    width:20% ;
+}
+.wrapper {
+    /*text-align: center;*/
+    align-self: center;
+    margin-top: 0.6%;
+    margin-left: 36.5%;
+}
+.jumbotron {
+    margin-top: 5%;
+}
+

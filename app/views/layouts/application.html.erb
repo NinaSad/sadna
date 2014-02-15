@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SadnaApp</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+  <!-- Bootstrap core CSS -->
+  <%= stylesheet_link_tag    "bootstrap.css" %>
+
+
+  <!-- Custom styles for this template -->
+  <%= stylesheet_link_tag "site.css" %>
+  <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Project name</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><%= link_to 'TODO', tasks_path %></li>
+        <li><%= link_to 'DOING', tasks_path %></li>
+        <li><%= link_to 'DONE', tasks_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">SORT<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">High To Low</a></li>
+            <li><a href="#">Low To High</a></li>
+            <li><a href="#">By Name</a></li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Nav header</li>
+            <li><a href="#">Separated link</a></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="wrapper">
+        <%= link_to 'New Task', new_task_path ,:class =>"btn btn-primary btn-default active", :role => "button" %>
+
+      </div>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<%= yield %>
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<%= javascript_include_tag "bootstrap.min.js" %>
+
+
+</body>
+</html>
