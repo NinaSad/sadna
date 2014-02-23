@@ -1,37 +1,52 @@
-<%= form_for(@task) do |f| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% @task.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+    <%= form_for(@task) do |f| %>
+      <% if @task.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+          <ul>
+          <% @task.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :priority %><br>
-    <%= f.text_field :priority %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :due_date %><br>
-    <%= f.date_select :due_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      <div class="field">
+        <%= f.label :title %><br>
+        <!--%= f.text_field :title %-->
+        <textarea type="text" class="form-control" required autofocus></textarea>
+      </div>
+      <div class="field" class="width-size2">
+        <%= f.label :priority %><br>
+        <select name="q1" class="form-control"  >
+          <option value="1">ASAP</option>
+          <option value="2">Medium</option>
+          <option value="3">Take your time</option>
+        </select>
+        <!-- f.text_field :priority %-->
+      </div>
+      <div class="field">
+        <%= f.label :description %><br>
+        <!--%= f.text_area :description %-->
+        <textarea type="text" name="Task Description:" class="form-control" required></textarea>
+      </div>
+      <div class="field">
+        <%= f.label :status %><br>
+        <select name="q2" class="form-control"  >
+          <option value="1">TODO</option>
+          <option value="2">DOING</option>
+          <option value="3">DONE</option>
+        </select>
+        <!--%= f.text_field :status %-->
+      </div>
+      <div class="field">
+        <%= f.label :due_date %><br>
+        <%= f.date_select :due_date %>
+      </div>
+      <div class="actions">
+        <p>
+          <%= f.submit(:class=>"btn btn-lg btn-primary",:href=>"../../components/#navbar" ,:role => "button") %>
+        </p>
+      </div>
+    <% end %>
