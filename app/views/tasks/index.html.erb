@@ -1,32 +1,40 @@
-<h1>Listing tasks</h1>
+<div class="page-header">
+  <h1>Listing tasks</h1>
+</div>
+
 
 <table>
   <thead>
-    <tr>
-      <th>Title</th>
-      <th>Priority</th>
-      <th>Description</th>
-      <th>Status</th>
-      <th>Due date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+  <tr>
+    <th>Title</th>
+    <th>Priority</th>
+    <th>Description</th>
+    <th>Status</th>
+    <th>Due date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
   </thead>
 
   <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
+  <% @tasks.each do |task| %>
+      <tr class="task">
         <td><%= task.title %></td>
         <td><%= task.priority %></td>
         <td><%= task.description %></td>
         <td><%= task.status %></td>
         <td><%= task.due_date %></td>
-        <td><%= link_to 'Show', task %></td>
-        <td><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>|</td>
+        <td><%= link_to time_ago_in_words(task.created_at) + " ago", task %></td>
+        <td class="admin">|</td>
+        <td class="admin"><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td class="admin">|</td>
+        <td class="admin"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
