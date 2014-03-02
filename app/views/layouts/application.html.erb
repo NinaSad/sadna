@@ -61,8 +61,19 @@
   </div>
 </div>
 <div class="container">
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
   <%= yield %>
 </div>
+
+<!--check if user logged in-->
+<% if user_signed_in? %>
+    <p>Welcome <%= current_user.email %></p>
+    <%= link_to 'Click to logout', destroy_user_session_path, :method => :delete %>
+<% else %>
+    <p>You are not signed in.</p>
+    <%= link_to 'Login', new_user_session_path %>
+<% end %>
 
 
 <!-- Placed at the end of the document so the pages load faster -->

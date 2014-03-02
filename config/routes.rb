@@ -1,8 +1,7 @@
 SadnaApp::Application.routes.draw do
 
+  devise_for :users
   resources :projects
-
-  resources :users
 
   resources :tasks
 
