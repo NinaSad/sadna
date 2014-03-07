@@ -3,41 +3,40 @@
 </div>
 
 
-<table>
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Priority</th>
-    <th>Description</th>
-    <th>Status</th>
-    <th>Due date</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <% @tasks.each do |task| %>
-      <tr class="task">
-        <td><%= task.title %></td>
-        <td><%= task.priority %></td>
-        <td><%= task.description %></td>
-        <td><%= task.status %></td>
-        <td><%= task.due_date %></td>
-        <td>|</td>
-        <td><%= link_to time_ago_in_words(task.created_at) + " ago", task %></td>
-        <td class="admin">|</td>
-        <td class="admin"><%= link_to 'Edit', edit_task_path(task) %></td>
-        <td class="admin">|</td>
-        <td class="admin"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-
+<div class="table-responsive">
+  <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Priority</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Due date</th>
+        <th></th>
+        <th></th>
+        <th></th>
       </tr>
-  <% end %>
-  </tbody>
-</table>
+      </thead>
 
+      <tbody>
+          <% @tasks.each do |task| %>
+              <tr class="task">
+                <td><%= task.title %></td>
+                <td><%= task.priority %></td>
+                <td><%= task.description %></td>
+                <td><%= task.status %></td>
+                <td><%= task.due_date %></td>
+                <!--<td>|</td>-->
+                <td><%= link_to time_ago_in_words(task.created_at) + " ago", task %></td>
+               <!-- <td class="admin">|</td>-->
+                <td class="admin"><%= link_to 'Edit', edit_task_path(task) %></td>
+               <!-- <td class="admin">|</td>-->
+                <td class="admin"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+          <% end %>
+      </tbody>
+    </table>
+</div>
 <br>
 
 <%= link_to 'New Task', new_task_path %>
