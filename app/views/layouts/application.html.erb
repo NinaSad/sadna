@@ -60,6 +60,22 @@
             <li><a href="#">One more separated link</a></li>-->
           </ul>
         </li>
+
+      </ul>
+
+      <ul class="nav pull-right" id="login">
+        <!--check if user logged in-->
+        <div>
+          <li><% if user_signed_in? %>
+                <%= current_user.full_name %><br>
+                <%= link_to 'Click to logout', destroy_user_session_path, :method => :delete %>
+            <% else %>
+                You are not signed in<br>
+                <%= link_to 'Login', new_user_session_path %>
+            <% end %></li>
+
+        </div>
+
       </ul>
       <div class="wrapper">
         <%= link_to 'New Task', new_task_path ,:class =>"btn btn-primary btn-default active", :role => "button" %>
@@ -70,21 +86,14 @@
 </div>
 <!-- asdasdasd -->
 <div class="container">
+  <!--p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p-->
   <div class="jumbotron">
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </div>
 </div>
 
-<!--check if user logged in-->
-<% if user_signed_in? %>
-    <p>Welcome <%= current_user.email %></p>
-    <%= link_to 'Click to logout', destroy_user_session_path, :method => :delete %>
-<% else %>
-    <p>You are not signed in.</p>
-    <%= link_to 'Login', new_user_session_path %>
-<% end %>
+
 
 
 <!-- Placed at the end of the document so the pages load faster -->

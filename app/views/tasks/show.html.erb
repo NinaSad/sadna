@@ -16,6 +16,16 @@
 </p>
 
 <p>
+  <strong>Project Name:</strong>
+  <%= @task.project_name %>
+</p>
+
+<p>
+  <strong>Assignee:</strong>
+  <%= @task.assignee %>
+</p>
+
+<p>
   <strong>Status:</strong>
   <%= @task.status %>
 </p>
@@ -23,6 +33,11 @@
 <p>
   <strong>Due date:</strong>
   <%= @task.due_date %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @task.user.full_name %>
 </p>
 
 
