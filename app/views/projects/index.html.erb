@@ -29,30 +29,36 @@
 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
   <div class="row placeholders">
     <div class="col-xs-6 col-sm-3 btn-link center-block">
-      <a href="/tasks?section_id=4">
+      <a href="/tasks?project_id=2">
         <img src=" /assets/pic.png " width="107" height="58">
         <h4>IT-Tiful</h4>
       </a>
     </div>
+
     <div class="col-xs-6 col-sm-3 btn-link center-block">
-      <a href="/tasks?section_id=3">
+      <a href="/tasks?project_id=1">
         <img src=" /assets/pic.png " width="107" height="58">
         <h4>IT-Opreting</h4>
       </a>
     </div>
     <div class="col-xs-6 col-sm-3 btn-link center-block">
-      <a href="/tasks?section_id=2">
+
+      <a href="/tasks?project_id=3">
         <img src=" /assets/pic.png " width="107" height="58">
-        <h4>IT-Stotage</h4>
+        <h4>IT-Storage</h4>
       </a>
     </div>
     <div class="col-xs-6 col-sm-3 btn-link center-block">
-      <a href="/tasks?section_id=1">
+      <a href="/tasks?project_id=4">
         <img src=" /assets/pic.png " width="107" height="58">
         <h4>IT-SystemNt</h4>
       </a>
     </div>
   </div>
+</div>
+
+<div class = "actions">
+  <%= link_to("it operating", {:controller => 'tasks', :project_id => '2'}) %>
 </div>
 <br>
 

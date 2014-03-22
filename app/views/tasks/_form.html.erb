@@ -33,8 +33,13 @@
 
         <div class="field">
           <%= f.label :project_name %><br>
-
-          <textarea type="text" name="task[project_name]" class="form-control" required></textarea>
+          <select name="task[project_name]" class="form-control">
+            <option value="IT-SystemNt">IT-SystemNt</option>
+            <option value="IT-Storage">IT-Storage</option>
+            <option value="IT-Opreting">IT-Opreting</option>
+            <option value="IT-Tiful">IT-Tiful</option>
+          </select>
+         <!-- <textarea type="text" name="task[project_name]" class="form-control" required></textarea>-->
         </div>
 
         <div class="field">
