@@ -44,8 +44,8 @@
 
         <div class="field">
           <%= f.label :assignee %><br>
+          <%= collection_select(:task, :assignee, User.all, :id, :full_name) %>
 
-          <textarea type="text" name="task[assignee]" class="form-control" required></textarea>
         </div>
 
       <div class="field">
@@ -65,8 +65,6 @@
          <label>Created by</label><br>
 
          <%= collection_select(:task, :user_id, User.all, :id, :full_name) %>
-         <!--<f.input :user_id, collection: User.all  %>-->
-         <!--<textarea type="text" name="task[user_id]" class="form-control" required></textarea>-->
 
        </div>
       <div class="actions">
