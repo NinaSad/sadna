@@ -4,4 +4,5 @@ class Task < ActiveRecord::Base
   #scope :click, lambda{|query|
    # where(["project_id LIKE ?", "#{query}%"])
   #}
+
 end

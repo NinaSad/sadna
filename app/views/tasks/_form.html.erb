@@ -42,6 +42,7 @@
          <!-- <textarea type="text" name="task[project_name]" class="form-control" required></textarea>-->
         </div>
 
+
         <div class="field">
           <%= f.label :assignee %><br>
           <%= collection_select(:task, :assignee, User.all, :id, :full_name) %>

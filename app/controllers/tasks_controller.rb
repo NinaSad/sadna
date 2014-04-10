@@ -5,9 +5,9 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
-    @project_id = Task.where(:project_id => @project_id)
-  end
+   # @tasks = Task.all
+    #@tasks = Task.where(:project_name => @project_name)
+    params[:project_id] ? @tasks = Task.where(:project_id => params[:project_id]) : @tasks = Task.all
 
   # GET /tasks/1
   # GET /tasks/1.json
@@ -74,9 +74,10 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:title, :priority, :description, :status, :due_date, :creation_date, :project_name, :assignee, :user_id)
     end
+
     def find_tasks
-      if params[:project_id]
-        @tasks = Task.find(params[:project_id])
+   #   if params[:project_name]
+    #    Task.find_by(:project_name)
       end
     end
 
