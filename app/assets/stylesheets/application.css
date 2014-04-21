@@ -19,5 +19,21 @@
     padding-top: 40px;
 }
 #login{
-    padding: 1%;
+
+    margin-top: 0.5%;
+}
+#menu_new_task{
+    padding: 8px;
+    margin-top: 7%;
+    color: #ffffff;
+}
+#menu_assigned_to_me{
+    padding: 8px;
+    margin-top: 4.5%;
+    color: #ffffff;
+}
+#menu_created_by_me{
+    padding: 8px;
+    margin-top: 5%;
+    color: #ffffff;
 }
