@@ -19,9 +19,9 @@
       <div class="field" class="width-size2">
         <%= f.label :priority %><br>
         <select name="task[priority]" class="form-control"  >
-          <option value="ASAP">ASAP</option>
-          <option value="Medium">Medium</option>
-          <option value="Take your time">Take your time</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
         </select>
 
       </div>
@@ -65,8 +65,9 @@
        <div class="field">
          <label>Created by</label><br>
 
-         <%= collection_select(:task, :user_id, User.all, :id, :full_name) %>
 
+         <%= f.hidden_field :user_id, :value => current_user.id %>
+         <%= current_user.full_name%>
        </div>
       <div class="actions">
         <p>

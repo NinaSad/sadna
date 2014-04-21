@@ -48,19 +48,19 @@
         <li><%= link_to 'DOING', tasks_path %></li>
         <li><%= link_to 'DONE', tasks_path %></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">SORT<b class="caret"></b></a>
+          <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">SORT<b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">High To Low</a></li>
-            <li><a href="#">Low To High</a></li>
-            <li><a href="#">By Task Name</a></li>
-            <li><a href="#">By User Name</a></li>
-            <!--<li class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>-->
+           <li><a href="#">High To Low</a></li>
+           <li><a href="#">Low To High</a></li>
+           <li><a href="#">By Task Name</a></li>
+           <li><a href="#">By User Name</a></li>
+          <li class="divider"></li>
+           <li class="dropdown-header">Nav header</li>
+           <li><a href="#">Separated link</a></li>
+           <li><a href="#">One more separated link</a></li>-->
           </ul>
         </li>
-
+        <%= link_to 'New Task', new_task_path ,:class =>"btn btn-primary btn-default active ", :role => "button" %>
       </ul>
 
       <ul class="nav pull-right" id="login">
@@ -77,10 +77,7 @@
         </div>
 
       </ul>
-      <div class="wrapper">
-        <%= link_to 'New Task', new_task_path ,:class =>"btn btn-primary btn-default active", :role => "button" %>
 
-      </div>
     </div><!--/.nav-collapse -->
   </div>
 </div>
@@ -98,7 +95,8 @@
 
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<%= javascript_include_tag "jquery.tablesorter.js" %>
 <%= javascript_include_tag "bootstrap.min.js" %>
 
 

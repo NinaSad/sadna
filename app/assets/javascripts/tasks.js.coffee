@@ -4,3 +4,6 @@
 $ ->
   $('.task').hover (event) ->
     $(this).toggleClass("hover")
+
+  $("#myTable").tablesorter()
+
