@@ -1,10 +1,11 @@
 <div class="page-header">
-  <h1>Listing tasks</h1>
+  <h1>Tasks</h1>
 </div>
 
+<div class="container">
 
 <div class="table-responsive">
-  <table id="myTable" class="table table-striped tablesorter">
+  <table id="myTable" class="table table-striped tablesorter col-lg-1" coler="black">
       <thead>
       <tr>
         <th>Title</th>
@@ -27,7 +28,7 @@
                 <td><%= task.title %></td>
                 <td><%= task.priority %></td>
                 <td><%= task.description %></td>
-                <td><%= task.project_name %></td>
+                <td><%= task.project.projectName %></td>
                 <td hidden="hidden"><%= task.project_id %></td>
                 <td><%= task.doer.full_name %></td>
                 <td><%= task.status %></td>
@@ -44,6 +45,8 @@
       </tbody>
     </table>
 </div>
+    </div>
+
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+<!--<%= link_to 'New Task', new_task_path %>-->

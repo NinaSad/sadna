@@ -6,7 +6,6 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
    # @tasks = Task.all
-    #@tasks = Task.where(:project_name => @project_name)
     params[:project_id] ? @tasks = Task.where(:project_id => params[:project_id]) : @tasks = Task.all
 
   # GET /tasks/1
@@ -27,7 +26,6 @@ class TasksController < ApplicationController
   # POST /tasks.json
   def create
     @task = Task.new(task_params)
-
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
@@ -72,7 +70,7 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:title, :priority, :description, :status, :due_date, :creation_date, :project_name, :assignee, :user_id)
+      params.require(:task).permit(:title, :priority, :description, :status, :due_date, :creation_date, :project_name, :project_id, :assignee, :user_id)
     end
 
     def find_tasks

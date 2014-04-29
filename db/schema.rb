@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 20140314140729) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "project_id"
-    t.string   "project_name"
+    t.integer   "project_name"
     t.integer  "user_id"
     t.integer  "assignee"
   end
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20140314140729) do
   add_index "tasks", ["assignee"], name: "index_tasks_on_assignee"
   add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
+  add_index "tasks", ["project_name"], name:"index_tasks_on_project_name"
 
   create_table "tasks_users", id: false, force: true do |t|
     t.integer "user_id", null: false
