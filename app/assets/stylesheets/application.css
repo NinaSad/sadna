@@ -27,6 +27,11 @@
     margin-top: 7%;
     color: #ffffff;
 }
+#menu_new_task:hover,
+#menu_assigned_to_me:hover,
+#menu_created_by_me:hover{
+    color: #000000;
+}
 #menu_assigned_to_me{
     padding: 8px;
     margin-top: 4.5%;
