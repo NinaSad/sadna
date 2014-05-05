@@ -7,3 +7,8 @@ $ ->
 
   $("#myTable").tablesorter()
 
+  $("#date").datepicker({
+    format: 'yyyy-mm-dd'
+  })
+  $("#date").datepicker('setValue' ,new Date())
+
