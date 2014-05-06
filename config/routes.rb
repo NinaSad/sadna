@@ -1,6 +1,7 @@
 SadnaApp::Application.routes.draw do
 
-  devise_for :users
+  #devise_for :users
+  devise_for :users, :controllers => { :sessions => "sessions",:passwords => "passwords",:registrations => "registrations" }
   resources :projects
 
   resources :tasks

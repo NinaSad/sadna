@@ -1,12 +1,56 @@
-<h2>Forgot your password?</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
+  <title>SadnaApp | <%= @page_title %></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+  <!-- Bootstrap core CSS -->
+  <%= stylesheet_link_tag    "bootstrap.css" %>
+  <%= stylesheet_link_tag    "datepicker.css" %>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
-<% end %>
+  <!-- Custom styles for this template -->
+  <%= stylesheet_link_tag "site.css" %>
+  <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+  <style>
 
-<%= render "devise/shared/links" %>
+      h1 {text-align:center;font-family: 'Nixie One', cursive;}
+      body {
+          font-family: 'Varela Round', sans-serif;
+          font-size: 14px;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post , :class=>"form-signin" ,:role=>"form" }) do |f| %>
+      <%= devise_error_messages! %>
+        <h2>Forgot your password?</h2><br>
+      <div>
+        <%= f.email_field :email, :autofocus => true,:type=>"email",:class=>"form-control", :placeholder=>"Email address", :required=>true %><br />
+      </div>
+
+      <!--<div><%= f.submit "Send me reset password instructions" %></div>-->
+      <div><%= f.submit(:class=>"btn btn-lg btn-primary btn-block",:href=>"../../components/#navbar" ,:role => "button", :value=>"Send me my password") %></div><br>
+      <%= render "devise/shared/links" %>
+    <% end %>
+
+
+</div>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <%= javascript_include_tag "jquery.tablesorter.js" %>
+    <%= javascript_include_tag "bootstrap.min.js" %>
+    <%= javascript_include_tag "bootstrap-datepicker.js" %>
+
+
+</body>
+</html>

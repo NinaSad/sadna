@@ -1,16 +1,56 @@
-<h2>Change your password</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+  <title>SadnaApp | <%= @page_title %></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
+  <!-- Bootstrap core CSS -->
+  <%= stylesheet_link_tag    "bootstrap.css" %>
+  <%= stylesheet_link_tag    "datepicker.css" %>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <!-- Custom styles for this template -->
+  <%= stylesheet_link_tag "site.css" %>
+  <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+  <style>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
+      h1 {text-align:center;font-family: 'Nixie One', cursive;}
+      body {
+          font-family: 'Varela Round', sans-serif;
+          font-size: 14px;
+      }
+  </style>
+</head>
+<body>
+    <h2>Change your password</h2>
 
-<%= render "devise/shared/links" %>
+    <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+      <%= devise_error_messages! %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div><%= f.label :password, "New password" %><br />
+      <%= f.password_field :password, :autofocus => true %></div>
+
+      <div><%= f.label :password_confirmation, "Confirm new password" %><br />
+      <%= f.password_field :password_confirmation %></div>
+
+      <div><%= f.submit "Change my password" %></div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <%= javascript_include_tag "jquery.tablesorter.js" %>
+    <%= javascript_include_tag "bootstrap.min.js" %>
+    <%= javascript_include_tag "bootstrap-datepicker.js" %>
+
+
+</body>
+</html>

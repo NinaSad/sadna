@@ -1,26 +1,65 @@
-<h2>Sign up</h2>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <title>SadnaApp | <%= @page_title %></title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
 
-  <div><%= f.label :first_name %><br />
-    <%= f.text_field :first_name , :autofocus => true %></div>
+  <!-- Bootstrap core CSS -->
+  <%= stylesheet_link_tag    "bootstrap.css" %>
+  <%= stylesheet_link_tag    "datepicker.css" %>
 
-  <div><%= f.label :last_name %><br />
-    <%= f.text_field :last_name %></div>
+  <!-- Custom styles for this template -->
+  <%= stylesheet_link_tag "site.css" %>
+  <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+  <style>
 
-  <div><%= f.label :email %><br />
-    <%= f.email_field :email %></div>
+      h1 {text-align:center;font-family: 'Nixie One', cursive;}
+      body {
+          font-family: 'Varela Round', sans-serif;
+          font-size: 14px;
+      }
+  </style>
+</head>
+<body>
+<div class="container">
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name),:html => { :class=>"form-signin" ,:role=>"form" }) do |f| %>
+      <%= devise_error_messages! %>
+      <h2 class="form-signin-heading">Sign up</h2><br>
 
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password %></div>
+      <div>
+        <%= f.text_field :first_name , :autofocus => true ,:type=>"text", :class=>"form-control", :placeholder=>"First name", :required=>true%></div>
 
-  <div><%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation %></div><br />
+      <div>
+        <%= f.text_field :last_name,:type=>"text", :class=>"form-control", :placeholder=>"Last name", :required=>true %></div>
 
-    <!--<div><%= f.submit "Sign up" %></div>-->
-  <div><%= f.submit(:class=>"btn btn-lg btn-primary",:href=>"../../components/#navbar" ,:role => "button") %></div>
+      <div>
+        <%= f.email_field :email, :autofocus => true,:type=>"email",:class=>"form-control", :placeholder=>"Email address", :required=>true %></div>
 
-<% end %>
+      <div>
+        <%= f.password_field :password ,:type=>"password", :class=>"form-control", :placeholder=>"Password", :required=>true%></div>
 
-<%= render "devise/shared/links" %>
+      <div>
+        <%= f.password_field :password_confirmation,:type=>"password", :class=>"form-control", :placeholder=>"Password confirmation", :required=>true %></div><br />
+
+      <!--<div><%= f.submit "Sign up" %></div>-->
+      <div><%= f.submit(:class=>"btn btn-lg btn-primary btn-block",:href=>"../../components/#navbar" ,:role => "button") %></div><br>
+      <%= render "devise/shared/links" %>
+  <% end %>
+</div>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <%= javascript_include_tag "jquery.tablesorter.js" %>
+    <%= javascript_include_tag "bootstrap.min.js" %>
+    <%= javascript_include_tag "bootstrap-datepicker.js" %>
+
+
+</body>
+</html>

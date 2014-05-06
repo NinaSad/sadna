@@ -16,30 +16,31 @@
         <%= f.label :title %><br>
         <textarea type="text" name="task[title]" class="form-control" required autofocus><%= @task.title %></textarea>
       </div>
-      <div class="field" class="width-size2">
-        <%= f.label :priority %><br>
-        <select name="task[priority]" class="form-control"  >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
 
-      </div>
       <div class="field">
         <%= f.label :description %><br>
 
         <textarea type="text" name="task[description]" class="form-control" required></textarea>
       </div>
 
+        <div class="field" class="width-size2">
+          <%= f.label :priority %><br>
+          <select name="task[priority]" class="form-control"  >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+
+        </div>
         <div class="field">
           <%= f.label :project_name %><br>
-             <%= f.collection_select(:project_id , Project.all, :id, :name) %>
+          <%= f.collection_select(:project_id , Project.all, :id, :name, {}, {:class=>"form-control"}) %>
         </div>
 
 
         <div class="field">
           <%= f.label :assignee %><br>
-          <%= collection_select(:task, :assignee, User.all, :id, :full_name) %>
+          <%= collection_select(:task, :assignee, User.all, :id, :full_name, {}, {:class=>"form-control"}) %>
 
         </div>
 
@@ -55,7 +56,7 @@
       <div class="field">
 
         <%= f.label :due_date %><br>
-        <%= f.text_field :due_date, :id=>"date" %>
+        <%= f.text_field :due_date, :id=>"date" ,:class=>"form-control"%>
         <!--<textarea type="text" name="task[title]" class="form-control" id="date" required autofocus><%= @task.due_date  %></textarea>-->
       </div >
 
@@ -64,7 +65,10 @@
 
 
          <%= f.hidden_field :user_id, :value => current_user.id %>
-         <%= current_user.full_name%>
+         <p class="form-control">
+           <%= current_user.full_name%>
+         </p><br>
+
        </div>
       <div class="actions">
         <p>
