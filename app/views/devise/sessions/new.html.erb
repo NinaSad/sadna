@@ -18,9 +18,10 @@
 
   <!-- Custom styles for this template -->
   <%= stylesheet_link_tag "site.css" %>
+
   <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
   <style>
-
+        
       h1 {text-align:center;font-family: 'Nixie One', cursive;}
       body {
           font-family: 'Varela Round', sans-serif;
@@ -28,26 +29,30 @@
       }
   </style>
 </head>
-<body>
+<body class="bg">
     <div class="container">
-
-        <%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => { :class=>"form-signin" ,:role=>"form" }) do |f| %>
-          <h2 class="form-signin-heading">Sign in</h2>
+      <div class="row">
+        <div class="col-md-7"></div>
+        <div  class="col-md-5 home-right">
+          <h1 class="bg-title bg-title-main">Welcome<br> to Eazy Task</h1><br>
+          <h4 class="bg-title bg-title-sub">Create & manage tasks in a much eazier way,<br>Organize your team, your project, and yourself</h4><br>
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => { :class=>"form-signin form-signin-left" ,:role=>"form" }) do |f| %>
+              <h2 class="form-signin-heading bg-title">Sign in</h2>
 
               <%= f.email_field :email, :autofocus => true,:type=>"email",:class=>"form-control", :placeholder=>"Email address", :required=>true %>
 
               <%= f.password_field :password ,:type=>"password", :class=>"form-control", :placeholder=>"Password", :required=>true%>
 
-            <% if devise_mapping.rememberable? -%>
-                <label class="checkbox"><%= f.check_box :remember_me, :type=>"checkbox"%> Remember me</label>
-            <% end -%>
+              <% if devise_mapping.rememberable? -%>
+                  <label class="checkbox signin-checkbox"><%= f.check_box :remember_me, :type=>"checkbox"%> Remember me</label>
+              <% end -%>
 
-            <div><%= f.submit(:class=>"btn btn-lg btn-primary btn-block",:href=>"../../components/#navbar" ,:role => "button", :value=>"Sign in") %></div><br>
-          <%= render "devise/shared/links" %>
+              <div><%= f.submit(:class=>"btn btn-lg btn-primary btn-block",:href=>"../../components/#navbar" ,:role => "button", :value=>"Sign in") %></div><br>
+              <%= render "devise/shared/links" %>
 
-        <% end %>
-
-
+          <% end %>
+        </div>
+      </div>
     </div>
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>

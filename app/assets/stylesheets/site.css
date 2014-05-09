@@ -1,7 +1,6 @@
-body {
-    font-family: 'Nunito', sans-serif;
+.container-wrap{
+    background-image: url("taskspic.jpg");
 }
-
 .width-size2{
     width:20% ;
 }
@@ -16,6 +15,7 @@ body {
 }
 
 body {
+    font-family: 'Nunito', sans-serif;
     padding-top: 40px;
     padding-bottom: 40px;
     background-color: #eeeeee;
@@ -25,6 +25,7 @@ body {
     max-width: 330px;
     padding: 15px;
     margin: 0 auto;
+
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -53,4 +54,28 @@ body {
 .form-signin input[type="password"] {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+.bg{
+    background: url("hands_hero.jpg") center center no-repeat;
+    background-size: 100%;
+}
+.bg-title{
+    color: #ffffff;
+    font-family: "proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-shadow: 0 1px 3px black;
+    text-align: left;
+}
+.bg-title-main{
+    font-weight: 800;
+    font-size: 58px;
+    line-height: 1.2;
+    margin-top: 30px;
+}
+.bg-title-sub{
+    font-size: 21px;
+    font-weight: normal;
+    line-height: 31px;
+}
+.home-right{
+    align-content: center;
 }
