@@ -1,5 +1,6 @@
 .container-wrap{
     background-image: url("taskspic.jpg");
+
 }
 .width-size2{
     width:20% ;
@@ -57,7 +58,10 @@ body {
 }
 .bg{
     background: url("hands_hero.jpg") center center no-repeat;
-    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 .bg-title{
     color: #ffffff;

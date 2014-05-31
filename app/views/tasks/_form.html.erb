@@ -55,7 +55,7 @@
       <div class="field">
 
         <%= f.label :due_date %><br>
-        <%= f.text_field :due_date, :id=>"date" ,:class=>"form-control"%>
+        <%= f.text_field :due_date, :id=>"due_date" ,:class=>"form-control"%>
         <!--<textarea type="text" name="task[title]" class="form-control" id="date" required autofocus><%= @task.due_date  %></textarea>-->
       </div >
 
@@ -75,7 +75,7 @@
             <%= link_to 'Back', tasks_path, :class=>"btn btn-lg btn-default", :type=>"button" %>
           </p>
         </div>
-    <% end %>
-    </div>
+        <% end %>
+
    </div>
 </div>

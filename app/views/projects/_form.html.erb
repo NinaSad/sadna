@@ -1,29 +1,41 @@
-<%= form_for(@project) do |f| %>
-  <% if @project.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+<div class="row">
+  <div class="col-md-5">
+    <%= form_for(@project) do |f| %>
+        <% if @project.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
 
-      <ul>
-      <% @project.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+              <ul>
+                <% @project.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+        <div class="field">
+          <%= f.label :name %><br>
+          <textarea type="text" name="project[name]" class="form-control" required autofocus><%= @project.name %></textarea>
+          <!--%= f.text_field :name %-->
+        </div>
+        <div class="field">
+          <%= f.label :start_date %><br>
+          <%= f.text_field :start_date, :id=>"start_date" ,:class=>"form-control"%>
+          <!--%= f.date_select :start_date %-->
+        </div>
+        <div class="field">
+          <%= f.label :due_date %><br>
+          <%= f.text_field :due_date, :id=>"due_date" ,:class=>"form-control"%>
+          <!--%= f.date_select :due_date %-->
+        </div>
+        <br>
+        <div class="actions">
+          <!--%= f.submit %-->
+          <%= f.submit(:class=>"btn btn-lg btn-primary",:href=>"../../components/#navbar" ,:role => "button") %>
+        </div>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.date_select :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :due_date %><br>
-    <%= f.date_select :due_date %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
+
+
+

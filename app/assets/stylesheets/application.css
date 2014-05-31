@@ -27,6 +27,13 @@
     margin-top: 7%;
     color: #ffffff;
 }
+#new_project_btn{
+    padding: 8px;
+    margin-top: 7%;
+    color: #ffffff;
+    background-color: #B0B0B0;
+    border-color: #A0A0A0;
+}
 #menu_new_task:hover,
 #menu_assigned_to_me:hover,
 #menu_created_by_me:hover{
@@ -41,4 +48,11 @@
     padding: 8px;
     margin-top: 5%;
     color: #ffffff;
+}
+#todo_counter,
+#doing_counter{
+    color: dodgerblue;
+    font-weight: bold;
+    margin-top: 2.6%;
+
 }

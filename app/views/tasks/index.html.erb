@@ -30,10 +30,10 @@
                 <td><%= task.description %></td>
                 <td><%= task.project.projectName %></td>
                 <td hidden="hidden"><%= task.project_id %></td>
-                <td><%= task.doer.full_name %></td>
+                <td class="assignee"><%= task.doer.full_name %></td>
                 <td><%= task.status %></td>
                 <td><%= task.due_date %></td>
-                <td><%= task.user.full_name %></td>
+                <td class="created_by"><%= task.user.full_name %></td>
                 <!--<td>|</td>-->
                 <td><%= link_to time_ago_in_words(task.created_at) + " ago", task %></td>
                <!-- <td class="admin">|</td>-->
@@ -44,6 +44,9 @@
           <% end %>
       </tbody>
     </table>
+
+
+
 </div>
   <%= link_to 'New Task', new_task_path %>
     </div>
