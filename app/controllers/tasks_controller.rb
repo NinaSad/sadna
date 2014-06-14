@@ -1,12 +1,21 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
-  before_action :find_tasks
+   before_action :set_task, only: [:show, :edit, :update, :destroy]
+   # before_action :doing
+
+
 
   # GET /tasks
   # GET /tasks.json
   def index
    # @tasks = Task.all
-    params[:project_id] ? @tasks = Task.where(:project_id => params[:project_id]) : @tasks = Task.all
+    params[:project_id] ? @tasks = Task.where(:project_id => params[:project_id]) :@tasks = Task.all
+    params[:status] ? @tasks = Task.where(:status => params[:status]) :@tasks
+    if params[:project_id] && params[:status]
+      @tasks = Task.where(:project_id => params[:project_id],:status => params[:status] )
+    else
+      @tasks
+    end
+
 
   # GET /tasks/1
   # GET /tasks/1.json
@@ -60,8 +69,8 @@ class TasksController < ApplicationController
       format.json { head :no_content }
     end
   end
+end
 
-  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
@@ -73,10 +82,6 @@ class TasksController < ApplicationController
       params.require(:task).permit(:title, :priority, :description, :status, :due_date, :creation_date, :project_name, :project_id, :assignee, :user_id)
     end
 
-    def find_tasks
-   #   if params[:project_name]
-    #    Task.find_by(:project_name)
-      end
     end
 
 

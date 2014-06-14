@@ -1,69 +1,34 @@
 <div class="container">
     <h1 class="page-header">My Projects</h1><br>
 
-    <!--<table>
+    <table>
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Start date</th>
-          <th>Due date</th>
-          <th></th>
-          <th></th>
-          <th></th>
+          <th hidden="hidden">Name</th>
+          <th hidden="hidden">Priority</th>
+          <th hidden="hidden">Start date</th>
+          <th hidden="hidden">Due date</th>
+          <th hidden="hidden">Created at </th>
+          <th hidden="hidden">Update</th>
         </tr>
       </thead>
 
       <tbody>
         <% @projects.each do |project| %>
-          <tr>
-            <td><%= project.name %></td>
-            <td><%= project.start_date %></td>
-            <td><%= project.due_date %></td>
-            <td><%= link_to 'Show', project %></td>
-            <td><%= link_to 'Edit', edit_project_path(project) %></td>
-            <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <tr class="project">
+            <td class='shap'><%= link_to project.name, tasks_path(:project_id => project.id) %></td>
+            <td hidden="hidden"><%= project.start_date %></td>
+            <td hidden="hidden"><%= project.due_date %></td>
+            <td hidden="hidden"><%= link_to 'Show', project %></td>
+            <td class="admin"><%= link_to 'Edit', edit_project_path(project) %></td>
+            <td class="admin"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
-    </table>-->
+    </table>
 
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <div class="row placeholders">
-        <div class="col-xs-6 col-sm-3 btn-link center-block">
-          <a href="/tasks?project_id=2">
-            <img src=" /assets/pic.png " width="107" height="58">
-            <h4>IT-Tiful</h4>
-          </a>
-        </div>
-
-        <div class="col-xs-6 col-sm-3 btn-link center-block">
-          <a href="/tasks?project_id=1">
-            <img src=" /assets/pic.png " width="107" height="58">
-            <h4>IT-Operating</h4>
-          </a>
-        </div>
-        <div class="col-xs-6 col-sm-3 btn-link center-block">
-
-          <a href="/tasks?project_id=3">
-            <img src=" /assets/pic.png " width="107" height="58">
-            <h4>IT-Storage</h4>
-          </a>
-        </div>
-        <div class="col-xs-6 col-sm-3 btn-link center-block">
-          <a href="/tasks?project_id=4">
-            <img src=" /assets/pic.png " width="107" height="58">
-            <h4>IT-SystemNt</h4>
-          </a>
-        </div>
-      </div>
-    </div>
 
     <%= link_to 'New Project', new_project_path,:class =>"btn btn-primary btn-default",id:"new_project_btn" %>
     <br>
-    <!--<div class = "actions">
-      <%= link_to("it operating", {:controller => 'tasks', :project_id => '2'}) %>
-    </div>
-    <br>
 
-    <%= link_to 'My Projects', projects_path %>-->
 </div>
