@@ -27,8 +27,9 @@
       </tbody>
     </table>
 
-
-    <%= link_to 'New Project', new_project_path,:class =>"btn btn-primary btn-default",id:"new_project_btn" %>
-    <br>
+    <div class="project_btns">
+      <%= link_to 'New Project', new_project_path,:class =>"btn btn-lg btn-primary"%>
+      <%= link_to 'All Tasks', tasks_path,:class =>"btn btn-lg btn-default" %>
+    </div>
 
 </div>

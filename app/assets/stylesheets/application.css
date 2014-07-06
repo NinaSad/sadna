@@ -27,11 +27,9 @@
     margin-top: 7%;
     color: #ffffff;
 }
-#new_project_btn{
-    padding: 8px;
+.project_btns{
     margin-top: 7%;
     color: #ffffff;
-    background-color: #B0B0B0;
     border-color: #A0A0A0;
 }
 #menu_new_task:hover,

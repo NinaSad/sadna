@@ -71,11 +71,12 @@
         </li>
         <li>
 
-          <button class="btn btn-success btn-default" id="menu_assigned_to_me">Assigned To Me</button>
-          <!--%= link_to 'Assigned To Me',:class =>"btn btn-success btn-default", :role => "button",id:"menu_assigned_to_me"  %-->
+          <!--<button class="btn btn-success btn-default" id="menu_assigned_to_me">Assigned To Me</button>-->
+          <!--%= link_to 'Assigned To Me',"#" ,:class =>"btn btn-success btn-default", :role => "button",id:"menu_assigned_to_me"%-->
+          <a class="btn btn-success btn-default" id="menu_assigned_to_me">Assigned To Me</a>
         </li>
         <li>
-          <button class="btn btn-info btn-default" id="menu_created_by_me">Created By Me</button>
+          <a class="btn btn-info btn-default" id="menu_created_by_me">Created By Me</a>
           <!--%= link_to 'Created By Me', new_task_path ,:class =>"btn btn-info btn-default", :role => "button",id:"menu_created_by_me"  %-->
         </li>
       </ul>
@@ -111,14 +112,13 @@
 
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<!--<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
 <script type="text/javascript">
-    window.onload = countTodo();
-    window.onload = countDoing();
+    $( document ).ready(function() {
+        countTasks("TODO","todo_counter");
+        countTasks("DOING","doing_counter");
+    });
 </script>
-<%= javascript_include_tag "jquery.tablesorter.js" %>
-<%= javascript_include_tag "bootstrap.min.js" %>
-<%= javascript_include_tag "bootstrap-datepicker.js" %>
 
 
 </body>

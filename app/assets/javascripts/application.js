@@ -15,29 +15,19 @@
 //= require turbolinks
 //= require_tree .
 
-function countTodo(){
+function countTasks(status,id){
+    if(document.getElementById("myTable")==null)
+        return;
     var x = 0;
     var i;
     var tableSize = document.getElementById("myTable").rows.length;
     var dataTable = document.getElementById("myTable");
     for (i = 1; i < tableSize; i++) {
-        if (dataTable.rows[i].cells[6].innerHTML == "TODO") {
+        if (dataTable.rows[i].cells[6].innerHTML == status) {
             x+=1;
         }
     }
-    document.getElementById("todo_counter").innerHTML= x ;
-}
-function countDoing(){
-    var x = 0;
-    var i;
-    var tableSize = document.getElementById("myTable").rows.length;
-    var dataTable = document.getElementById("myTable");
-    for (i = 1; i < tableSize; i++) {
-        if (dataTable.rows[i].cells[6].innerHTML == "DOING") {
-            x+=1;
-        }
-    }
-    document.getElementById("doing_counter").innerHTML= x ;
+    document.getElementById(id).innerHTML= x ;
 }
 
 
