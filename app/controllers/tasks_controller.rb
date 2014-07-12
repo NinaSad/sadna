@@ -8,8 +8,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
    # @tasks = Task.all
-    params[:project_id] ? @tasks = Task.where(:project_id => params[:project_id]) :@tasks = Task.all
-    params[:status] ? @tasks = Task.where(:status => params[:status]) :@tasks
+    params[:project_id] ? @tasks = Task.where(:project_id => params[:project_id]) : @tasks = Task.all
+    params[:status] ? @tasks = Task.where(:status => params[:status]) : @tasks
     if params[:project_id] && params[:status]
       @tasks = Task.where(:project_id => params[:project_id],:status => params[:status] )
     else

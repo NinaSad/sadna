@@ -1,35 +1,43 @@
 <div class="container">
     <h1 class="page-header">My Projects</h1><br>
+  <div class="row">
+    <div class="col-md-2">
+        <table>
+          <thead>
+            <tr>
+              <th hidden="hidden">Name</th>
+              <th hidden="hidden">Priority</th>
+              <th hidden="hidden">Start date</th>
+              <th hidden="hidden">Due date</th>
+              <th hidden="hidden">Created at </th>
+              <th hidden="hidden">Update</th>
+            </tr>
+          </thead>
 
-    <table>
-      <thead>
-        <tr>
-          <th hidden="hidden">Name</th>
-          <th hidden="hidden">Priority</th>
-          <th hidden="hidden">Start date</th>
-          <th hidden="hidden">Due date</th>
-          <th hidden="hidden">Created at </th>
-          <th hidden="hidden">Update</th>
-        </tr>
-      </thead>
+          <tbody>
+            <% @projects.each do |project| %>
+              <tr class="project">
+                <td class='shap'><%= link_to project.name, tasks_path(:project_id => project.id) %></td>
+                <td hidden="hidden"><%= project.start_date %></td>
+                <td hidden="hidden"><%= project.due_date %></td>
+                <td hidden="hidden"><%= link_to 'Show', project %></td>
+                <td class="admin"><%= link_to 'Edit', edit_project_path(project) %></td>
+                <td class="admin"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
 
-      <tbody>
-        <% @projects.each do |project| %>
-          <tr class="project">
-            <td class='shap'><%= link_to project.name, tasks_path(:project_id => project.id) %></td>
-            <td hidden="hidden"><%= project.start_date %></td>
-            <td hidden="hidden"><%= project.due_date %></td>
-            <td hidden="hidden"><%= link_to 'Show', project %></td>
-            <td class="admin"><%= link_to 'Edit', edit_project_path(project) %></td>
-            <td class="admin"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
 
-    <div class="project_btns">
-      <%= link_to 'New Project', new_project_path,:class =>"btn btn-lg btn-primary"%>
-      <%= link_to 'All Tasks', tasks_path,:class =>"btn btn-lg btn-default" %>
+      </div>
+    <div class="col-md-10">
+      <%= render 'tasks/task_table' %>
     </div>
 
+  </div>
+
+  <div class="project_btns">
+    <%= link_to 'New Project', new_project_path,:class =>"btn btn-lg btn-primary"%>
+    <%= link_to 'All Tasks', tasks_path,:class =>"btn btn-lg btn-default" %>
+  </div>
 </div>
