@@ -1,0 +1,50 @@
+<div>
+
+
+  <div class="table-responsive">
+    <table id="myTable" class="table table-striped tablesorter col-lg-1" coler="black">
+      <thead>
+      <tr>
+        <th hidden="true"></th>
+        <th>Title</th>
+        <th>Priority</th>
+        <th>Description</th>
+        <th>Project Name</th>
+        <th hidden="hidden">Project Id </th>
+        <th>Assignee</th>
+        <th>Status</th>
+        <th>Due date</th>
+        <th>Created by</th>
+        <th>When</th>
+        <th>Attachment</th>
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <% @tasks.each do |task| %>
+          <tr class="task">
+            <td hidden="hidden"><%= task.id %></td>
+            <td><%= link_to task.title, task %></td>
+            <td><%= task.priority %></td>
+            <td><%= task.description %></td>
+            <td><%= task.project.projectName %></td>
+            <td hidden="hidden"><%= task.project_id %></td>
+            <td class="assignee"><%= task.doer.full_name %></td>
+            <td><%= task.status %></td>
+            <td><%= task.due_date %></td>
+            <td class="created_by"><%= task.user.full_name %></td>
+            <!--<td>|</td>-->
+            <td><%= time_ago_in_words(task.created_at) + " ago" %></td>
+            <td><%= link_to task.doc,  "/uploads/#{task.doc}", :target => "_blank"  %></td>
+            <!-- <td class="admin">|</td>-->
+            <td class="admin"><%= link_to 'Edit', edit_task_path(task) %></td>
+            <!-- <td class="admin">|</td>-->
+            <td class="admin"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+  <br>
+</div>

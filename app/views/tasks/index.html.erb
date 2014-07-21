@@ -1,53 +1,24 @@
 <div>
   <div class="task">
-    <h1><%= params[:project_id]  %></h1>
+    <% project = Project.find_by(id: params[:project_id]) %>
+    <% status =  params[:status] %>
+    <% if project %>
+        <% if status%>
+            <h1><%= project.name %></h1>
+            <h3 class="text-center"><%= status %><%= " LIST" %></h3>
+            <h2></h2>
+        <% else %>
+            <h1><%= project.name %></h1>
+        <% end %>
+    <% else %>
+        <h1><%= params[:status] %></h1>
+    <% end %>
+    <% if !project %>
+        <% if !status %>
+            <h1><%= "Tasks" %></h1>
+        <% end %>
+    <% end %>
   </div>
-<div class="table-responsive">
-  <table id="myTable" class="table table-striped tablesorter col-lg-1" coler="black">
-      <thead>
-      <tr>
-        <th>Title</th>
-        <th>Priority</th>
-        <th>Description</th>
-        <th>Project Name</th>
-        <th hidden="hidden">Project Id </th>
-        <th>Assignee</th>
-        <th>Status</th>
-        <th>Due date</th>
-        <th>Created by</th>
-        <th>When</th>
-
-      </tr>
-      </thead>
-
-      <tbody>
-          <% @tasks.each do |task| %>
-              <tr class="task">
-                <td><%= task.title %></td>
-                <td><%= task.priority %></td>
-                <td><%= task.description %></td>
-                <td><%= task.project.projectName %></td>
-                <td hidden="hidden"><%= task.project_id %></td>
-                <td class="assignee"><%= task.doer.full_name %></td>
-                <td><%= task.status %></td>
-                <td><%= task.due_date %></td>
-                <td class="created_by"><%= task.user.full_name %></td>
-                <!--<td>|</td>-->
-                <td><%= link_to time_ago_in_words(task.created_at) + " ago", task %></td>
-               <!-- <td class="admin">|</td>-->
-                <td class="admin"><%= link_to 'Edit', edit_task_path(task) %></td>
-               <!-- <td class="admin">|</td>-->
-                <td class="admin"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              </tr>
-          <% end %>
-      </tbody>
-    </table>
-
-
+  <%= render 'task_table' %>
 
 </div>
-  <%= link_to 'New Task', new_task_path %>
-    </div>
-
-<br>
-

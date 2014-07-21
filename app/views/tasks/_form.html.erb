@@ -1,10 +1,9 @@
 <div class="row">
   <div class="col-md-5">
-    <%= form_for(@task) do |f| %>
+    <%= form_for(@task, :html => { :multipart => true}) do |f| %>
       <% if @task.errors.any? %>
         <div id="error_explanation">
           <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
           <ul>
           <% @task.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
@@ -18,62 +17,71 @@
         <textarea type="text" name="task[title]" class="form-control" required autofocus><%= @task.title %></textarea>
       </div>
 
-      <div class="field">
-        <%= f.label :description %><br>
-
-        <textarea type="text" name="task[description]" class="form-control" required></textarea>
-      </div>
-
-        <div class="field" class="width-size2">
-          <%= f.label :priority %><br>
+       <div class="field" class="width-size2">
+         <%= f.label :priority %><br>
           <select name="task[priority]" class="form-control"  >
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
           </select>
-
-        </div>
-        <div class="field">
-          <%= f.label :project_name %><br>
-          <%= f.collection_select(:project_id , Project.all, :id, :name, {}, {:class=>"form-control"}) %>
-        </div>
+       </div>
 
         <div class="field">
-          <%= f.label :assignee %><br>
-          <%= collection_select(:task, :assignee, User.all, :id, :full_name, {}, {:class=>"form-control"}) %>
+          <%= f.label :description %><br>
+          <textarea type="text" name="task[description]" class="form-control" required><%= @task.description %></textarea>
         </div>
 
-      <div class="field">
-        <%= f.label :status %><br>
-        <select name="task[status]" class="form-control">
-          <option value="TODO">TODO</option>
-          <option value="DOING">DOING</option>
-          <option value="DONE">DONE</option>
-        </select>
+       <div class="field">
+         <%= f.label :project_name %><br>
+         <%= f.collection_select(:project_id , Project.all, :id, :name, {}, {:class=>"form-control"}) %>
+       </div>
 
-      </div>
-      <div class="field">
+       <div class="field">
+         <%= f.label :assignee %><br>
+         <%= collection_select(:task, :assignee, User.all, :id, :full_name, {}, {:class=>"form-control"}) %>
+       </div>
+
+       <div class="field">
+         <%= f.label :status %><br>
+         <select name="task[status]" class="form-control">
+           <option value="TODO">TODO</option>
+           <option value="DOING">DOING</option>
+           <option value="DONE">DONE</option>
+         </select>
+       </div>
+
+       <div class="field">
         <%= f.label :due_date %><br>
-        <%= f.text_field :due_date, :id=>'due_date' ,:class=>'form-control' %>
-      </div >
+        <%= f.text_field :due_date, :id=>'due_date' ,:class=>'form-control' %> <%= @task.due_date %>
+       </div >
 
        <div class="field">
          <label>Created by</label><br>
-
-
          <%= f.hidden_field :user_id, :value => current_user.id %>
          <p class="form-control">
            <%= current_user.full_name%>
          </p><br>
-
        </div>
-        <div class="actions">
-          <p>
-            <%= f.submit(:class=>"btn btn-lg btn-primary",:href=>"../../components/#navbar" ,:role => "button") %>
-            <%= link_to 'Back', tasks_path, :class=>"btn btn-lg btn-default", :type=>"button" %>
-          </p>
-        </div>
-        <% end %>
 
-   </div>
+       <div class="field">
+         <%= label_tag :doc, 'Notes (optional)' %>
+         <%= file_field_tag :doc %>
+       </div><br>
+      <!-- <div class=field">
+         <label>attachment</label>
+         <%= f.file_field :file  %>
+         <%=  f.hidden_field :file_name, :value => "2" %>
+       </div><br>-->
+
+
+       <div class="actions">
+         <p>
+           <%= f.submit(:class=>"btn btn-lg btn-primary",:href=>"../../components/#navbar" ,:role => "button") %>
+           <%= link_to 'Back', tasks_path, :class=>"btn btn-lg btn-default", :type=>"button" %>
+         </p>
+       </div>
+    <% end %>
+
+
+  </div>
 </div>

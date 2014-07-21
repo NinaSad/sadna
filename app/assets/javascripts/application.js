@@ -23,11 +23,9 @@ function countTasks(status,id){
     var tableSize = document.getElementById("myTable").rows.length;
     var dataTable = document.getElementById("myTable");
     for (i = 1; i < tableSize; i++) {
-        if (dataTable.rows[i].cells[6].innerHTML == status) {
+        if (dataTable.rows[i].cells[7].innerHTML == status) {
             x+=1;
         }
     }
     document.getElementById(id).innerHTML= x ;
 }
-
-

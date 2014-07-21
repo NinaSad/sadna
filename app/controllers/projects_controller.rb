@@ -6,6 +6,8 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+    name = current_user
+    @tasks = Task.where(:status => "TODO",:assignee => name)
   end
 
   # GET /projects/1

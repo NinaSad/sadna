@@ -45,6 +45,12 @@
   <%= @task.user.full_name %>
 </p>
 
+<% if @task.doc %>
+    <p>
+      <strong>Document:</strong>
+      <%= link_to @task.doc, "/uploads/#{@task.doc}", :target => "_blank" %>
+    </p>
+<% end %>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>

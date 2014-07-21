@@ -3,20 +3,34 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .shap {
-  color: blue;
-  width: 100px;
-  height: 50px;
-  background-color: Menu;
-  border: dotted;
+  td:nth-child(1) {
+    background: #cccccc;
+    border-spacing:0.5rem;
+    padding: 0.5rem;
+    border:1px solid #BBBBBB;
+  }
+  td:nth-child(2) {
+    background: #cccccc;
+    border-spacing:0.5rem;
+    padding: 0.5rem;
+    border:1px solid #BBBBBB;
+  }
+  td:nth-child(3) {
+    background: #cccccc;
+    border-spacing:0.5rem;
+    padding: 0.5rem;
+    border:1px solid #BBBBBB;
+  }
 
 }
 
-.project .admin{
+
+.shap .admin{
   display: none;
 }
-.project.hover .admin{
+.shap.hover .admin{
   display: table-cell;
 }
-.project.hover{
+.shap.hover{
   background: #ececec;
 }
