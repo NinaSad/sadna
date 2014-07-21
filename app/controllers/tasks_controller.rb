@@ -34,12 +34,14 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     if params[:doc]
       uploaded_io = params[:doc]
-      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+      @task.doc = uploaded_io.original_filename
+      @task.doc_id =String( @task.doc.__id__)
+      File.open(Rails.root.join('public', 'uploads', @task.doc_id), 'wb') do |file|
         file.write(uploaded_io.read)
-        @task.doc = uploaded_io.original_filename
       end
     else
       @task.doc = ""
+      @task.doc_id = ""
     end
     respond_to do |format|
       if @task.save
@@ -58,10 +60,14 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if params[:doc]
+         if @task.doc != ""
+           File.delete(Rails.root.join('public', 'uploads',@task.doc_id))
+         end
         uploaded_io = params[:doc]
-        File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+        @task.doc = uploaded_io.original_filename
+        @task.doc_id =String( @task.doc.__id__)
+        File.open(Rails.root.join('public', 'uploads', @task.doc_id), 'wb') do |file|
           file.write(uploaded_io.read)
-          @task.doc = uploaded_io.original_filename
         end
       end
 
@@ -78,6 +84,9 @@ class TasksController < ApplicationController
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy
+    if @task.doc != ""
+      File.delete(Rails.root.join('public', 'uploads',@task.doc_id))
+    end
     @task.destroy
     respond_to do |format|
       format.html { redirect_to tasks_url }

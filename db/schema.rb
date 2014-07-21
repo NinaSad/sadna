@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719081639) do
+ActiveRecord::Schema.define(version: 20140721170835) do
 
   create_table "projects", force: true do |t|
     t.string   "name"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20140719081639) do
     t.integer  "user_id"
     t.integer  "assignee"
     t.string   "doc"
+    t.string   "doc_id"
   end
 
   add_index "tasks", ["assignee"], name: "index_tasks_on_assignee"
