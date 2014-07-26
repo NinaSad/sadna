@@ -36,6 +36,7 @@ class TasksController < ApplicationController
       uploaded_io = params[:doc]
       @task.doc = uploaded_io.original_filename
       @task.doc_id =String( @task.doc.__id__)
+      Dir.mkdir Rails.root.join('public', 'uploads') unless File.exists?(Rails.root.join('public', 'uploads'))
       File.open(Rails.root.join('public', 'uploads', @task.doc_id), 'wb') do |file|
         file.write(uploaded_io.read)
       end
