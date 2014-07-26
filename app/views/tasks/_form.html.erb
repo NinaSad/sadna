@@ -60,11 +60,11 @@
          <%= f.hidden_field :user_id, :value => current_user.id %>
          <p class="form-control">
            <%= current_user.full_name%>
-         </p><br>
+         </p>
        </div>
 
        <div class="field">
-         <%= label_tag :doc, 'Attachment (optional)' %>
+         <%= label_tag :doc, 'Attachment' %>
          <%= file_field_tag :doc %>
        </div><br>
 

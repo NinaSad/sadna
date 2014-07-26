@@ -30,14 +30,13 @@
 #menu_all_task{
     padding: 8px;
     margin-top: 7%;
-    color: #398439;
+    color: #ffffff;
 }
 .project_btns{
     margin-top: 7%;
     color: #ffffff;
     border-color: #A0A0A0;
 }
-#menu_all_task:hover
 #menu_new_task:hover,
 #menu_assigned_to_me:hover,
 #menu_created_by_me:hover{

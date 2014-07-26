@@ -1,7 +1,7 @@
 <div class="container">
-  <h1 class="page-header">My Projects</h1><br>
   <div class="row">
     <div class="col-md-2">
+      <h2 class="page-header">Projects</h2>
       <table>
         <thead>
         <tr>
@@ -21,7 +21,7 @@
               <td hidden="hidden"><%= project.start_date %></td>
               <td hidden="hidden"><%= project.due_date %></td>
               <td hidden="hidden"><%= link_to 'Show', project %></td>
-              <td class="admin"><%= link_to 'Edit', edit_project_path(project) %></td>
+              <td class="admin"><%= link_to 'Edit|', edit_project_path(project) %></td>
               <td class="admin"><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
         <% end %>
@@ -31,6 +31,7 @@
 
     </div>
     <div class="col-md-10">
+      <center><h2 class="page-header">My Tasks</h2></center>
       <%= render 'tasks/task_table' %>
     </div>
 
