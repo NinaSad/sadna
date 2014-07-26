@@ -54,7 +54,8 @@
     color: #ffffff;
 }
 
-#todo_counter{
+#todo_counter,
+#doing_counter{
     color: dodgerblue;
     font-weight: bold;
     margin-top: 2.6%;

@@ -47,8 +47,9 @@
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 
-        <li><%= link_to 'TODO', tasks_path(:status => "TODO", :project_id=>params[:project_id])  %></li>
         <li id="todo_counter"></li>
+        <li><%= link_to 'TODO', tasks_path(:status => "TODO", :project_id=>params[:project_id])  %></li>
+        <li id="doing_counter"></li>
         <li><%= link_to 'DOING', tasks_path(:status => "DOING",:project_id => params[:project_id]) %></li>
         <li><%= link_to 'DONE', tasks_path(:status => "DONE",:project_id => params[:project_id]) %></li>
         <!--<li class="dropdown">

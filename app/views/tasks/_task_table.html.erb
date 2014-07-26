@@ -36,7 +36,7 @@
             <td class="created_by"><%= task.user.full_name %></td>
             <!--<td>|</td>-->
             <td><%= time_ago_in_words(task.created_at) + " ago" %></td>
-            <td><%= link_to task.doc,  "/uploads/#{task.doc}", :target => "_blank"  %></td>
+            <td><%= link_to task.doc,  "/uploads/#{task.doc_id}", :target => "_blank"  %></td>
             <!-- <td class="admin">|</td>-->
             <td class="admin"><%= link_to 'Edit', edit_task_path(task) %></td>
             <!-- <td class="admin">|</td>-->
