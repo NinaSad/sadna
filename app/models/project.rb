@@ -9,4 +9,15 @@ class Project < ActiveRecord::Base
     "#{name}"
   end
 
+  def projectProgress
+    done = tasks.where(:status=> 'DONE').count
+    all = tasks.all.count
+    if all == 0
+      x = '0%'
+    else
+      x = "%d%" % ((Float(done)/Float(all))*100)
+    end
+    return x
+  end
+
 end

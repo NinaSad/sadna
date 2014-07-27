@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
     @projects = Project.all
     name = current_user
     @tasks = Task.where(:status => "TODO",:assignee => name)
+
   end
 
   # GET /projects/1
