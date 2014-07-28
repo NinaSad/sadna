@@ -44,6 +44,9 @@ class TasksController < ApplicationController
       @task.doc = ""
       @task.doc_id = ""
     end
+    if !@task.due_date
+      @task.due_date = Date.today;
+    end
     respond_to do |format|
       if @task.save
         format.html { redirect_to @task, notice: 'Task was successfully created.' }
@@ -52,6 +55,7 @@ class TasksController < ApplicationController
         format.html { render action: 'new' }
         format.json { render json: @task.errors, status: :unprocessable_entity }
       end
+
     end
 
   end
@@ -70,6 +74,10 @@ class TasksController < ApplicationController
         File.open(Rails.root.join('public', 'uploads', @task.doc_id), 'wb') do |file|
           file.write(uploaded_io.read)
         end
+      end
+
+      if params[:due_date]
+        @task.due_date = Date.today
       end
 
       if  @task.update(task_params)

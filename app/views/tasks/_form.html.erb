@@ -51,8 +51,13 @@
        </div>
 
        <div class="field">
-        <%= f.label :due_date %><br>
-        <%= f.text_field :due_date, :id=>'due_date' ,:class=>'form-control' %> <%= @task.due_date %>
+        <%= f.label(:due_date, 'Due date') %><br>
+        <!--<%= f.text_field(:due_date,:id=>"due_date"  ,:class=>'form-control')%>-->
+        <% if @task.due_date%>
+          <%= f.date_field :due_date,value: @task.due_date,:class=>'form-control'   %>
+         <% else %>
+             <%= f.date_field :due_date,value: Date.today  ,:class=>'form-control'   %>
+         <% end %>
        </div >
 
        <div class="field">

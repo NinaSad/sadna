@@ -12,6 +12,7 @@ ready = ->
   })
   $("#due_date").datepicker('setValue' ,new Date())
   $("#start_date").datepicker('setValue' ,new Date())
+  $("#now_date").datepicker('setValue' ,new Date.now())
 
   #filter by assigned to me button
   login_name = $("#login_name").text();
