@@ -23,24 +23,29 @@
       <tbody>
 
       <% @tasks.each do |task| %>
-          <tr class="task">
+          <tr class="task main-table">
             <td hidden="hidden"><%= task.id %></td>
             <td><%= link_to task.title, task %></td>
             <td><%= task.priority %></td>
-            <td><%= task.description %></td>
+            <td>
+              <table class="fixed-table">
+                <tr>
+                  <td><%= task.description %></td>
+                </tr>
+              </table>
+            </td>
             <td><%= task.project.projectName %></td>
             <td hidden="hidden"><%= task.project_id %></td>
             <td class="assignee"><%= task.doer.full_name %></td>
             <td><%= task.status %></td>
             <td><%= task.due_date %></td>
             <td class="created_by"><%= task.user.full_name %></td>
-            <!--<td>|</td>-->
             <td><%= time_ago_in_words(task.created_at) + " ago" %></td>
             <td><%= link_to task.doc,  "/uploads/#{task.doc_id}", :target => "_blank"  %></td>
-            <!-- <td class="admin">|</td>-->
+            <!--
             <td class="admin"><%= link_to 'Edit', edit_task_path(task) %></td>
-            <!-- <td class="admin">|</td>-->
             <td class="admin"><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+             -->
           </tr>
       <% end %>
       </tbody>

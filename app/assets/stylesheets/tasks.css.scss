@@ -13,3 +13,25 @@
 .task.hover{
   background: #ececec;
 }
+.main-table {
+  width: 100%;
+}
+
+.fixed-table {
+  /* magic */
+  width: 100%;
+  table-layout: fixed;
+
+  /*not really necessary, removes extra white space */
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0;
+
+
+}
+.fixed-table td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}

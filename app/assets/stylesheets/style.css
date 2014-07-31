@@ -4,6 +4,7 @@ table.tablesorter {
     font-size: 10pt;
     width: 100%;
     text-align: left;
+    word-wrap:break-word;
 
 }
 table.tablesorter thead tr th, table.tablesorter tfoot tr th {
@@ -26,6 +27,9 @@ table.tablesorter tbody td {
     background-color: #FFF;
     vertical-align: top;
     font-size: 12pt;
+
+
+
 }
 table.tablesorter tbody tr.odd td {
     background-color:#F0F0F6;
