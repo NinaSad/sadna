@@ -22,7 +22,7 @@
                 <%= link_to project.name, tasks_path(:project_id => project.id) %>
 
                 <div class="progress">
-                  <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.projectProgress %>;" >
+                  <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.projectProgress %>;" >
                    <%= project.projectProgress %>
                   </div>
                 </div>

@@ -20,12 +20,16 @@ ready = ->
     $("tr.task").each( (index,ele) ->
       if $(ele).children('.assignee').text() != login_name
         $(ele).remove())
+    countTasks("TODO","todo_counter");
+    countTasks("DOING","doing_counter");
 
   #filter by created by me button
   $('#menu_created_by_me').click (e) ->
     $("tr.task").each( (index,ele) ->
       if $(ele).children('.created_by').text() != login_name
         $(ele).remove())
+    countTasks("TODO","todo_counter");
+    countTasks("DOING","doing_counter");
 
 $(document).ready(ready)
 $(document).on('page:load', ready)
