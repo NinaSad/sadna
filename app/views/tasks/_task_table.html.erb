@@ -1,6 +1,5 @@
 <div>
 
-
   <div class="table-responsive">
     <table id="myTable" class="table table-striped tablesorter col-lg-1" coler="black">
       <thead>
@@ -27,13 +26,10 @@
             <td hidden="hidden"><%= task.id %></td>
             <td><%= link_to task.title, task %></td>
             <td><%= task.priority %></td>
-            <td>
-              <table class="fixed-table">
-                <tr>
+
                   <td><%= task.description %></td>
-                </tr>
-              </table>
-            </td>
+
+
             <td><%= task.project.projectName %></td>
             <td hidden="hidden"><%= task.project_id %></td>
             <td class="assignee"><%= task.doer.full_name %></td>

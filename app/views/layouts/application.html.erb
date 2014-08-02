@@ -64,7 +64,16 @@
 
       </ul>
 
-      <ul class="nav pull-right" id="login">
+
+      <ul class="navber pull-right">
+        <div class="navbar-right">
+          <%= link_to 'Help', '/projects/help',:class =>"default" %>
+          <%= link_to 'About', '/projects/about',:class =>"default" %>
+        </div>
+      </ul>
+
+      <ul class="navber pull-right" id="login">
+
         <!--check if user logged in-->
         <div>
           <li><% if user_signed_in? %>
@@ -77,7 +86,11 @@
 
         </div>
 
+
       </ul>
+
+
+
 
     </div><!--/.nav-collapse -->
   </div>
