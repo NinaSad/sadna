@@ -19,6 +19,9 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
+  def about
+
+  end
   # GET /tasks/new
   def new
     @task = Task.new

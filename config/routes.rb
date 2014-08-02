@@ -2,7 +2,13 @@ SadnaApp::Application.routes.draw do
 
   #devise_for :users
   devise_for :users, :controllers => { :sessions => "sessions",:passwords => "passwords",:registrations => "registrations" }
-  resources :projects
+  resources :projects do
+    collection do
+      get 'about'
+      get 'help'
+    end
+  end
+
 
   resources :tasks
 
@@ -12,6 +18,7 @@ SadnaApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'projects#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
