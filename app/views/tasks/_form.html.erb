@@ -20,9 +20,27 @@
        <div class="field" class="width-size2">
          <%= f.label :priority %><br>
           <select name="task[priority]" class="form-control"  >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            <% if @task.priority %>
+                <%if @task.priority == 1%>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                <%end%>
+                  <%if @task.priority == 2%>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                    <option value="3">3</option>
+                <%end%>
+                <%if @task.priority == 3%>
+                    <option value="3">3</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                <%end%>
+            <%else%>
+                 <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            <%end%>
           </select>
        </div>
 
@@ -44,9 +62,27 @@
        <div class="field">
          <%= f.label :status %><br>
          <select name="task[status]" class="form-control">
+           <%if @task.status%>
+               <%if @task.status == "DOING" %>
+                   <option value="DOING">DOING</option>
+                   <option value="TODO">TODO</option>
+                   <option value="DONE">DONE</option>
+               <%end%>
+               <%if @task.status == "TODO" %>
+                   <option value="TODO">TODO</option>
+                   <option value="DOING">DOING</option>
+                   <option value="DONE">DONE</option>
+               <%end%>
+               <%if @task.status == "DONE" %>
+                   <option value="DONE">DONE</option>
+                   <option value="TODO">TODO</option>
+                   <option value="DOING">DOING</option>
+               <%end%>
+           <% else %>
            <option value="TODO">TODO</option>
            <option value="DOING">DOING</option>
            <option value="DONE">DONE</option>
+           <%end%>
          </select>
        </div>
 

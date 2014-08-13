@@ -42,15 +42,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/projects">All Projects</a>
+      <a class="navbar-brand" href="/projects">Home</a>
     </div>
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
 
+        <li><%= link_to 'TODO', tasks_path(:status => "TODO", :project_id=>params[:project_id]) %></li>
         <li id="todo_counter"></li>
-        <li><%= link_to 'TODO', tasks_path(:status => "TODO", :project_id=>params[:project_id])  %></li>
-        <li id="doing_counter"></li>
+
         <li><%= link_to 'DOING', tasks_path(:status => "DOING",:project_id => params[:project_id]) %></li>
+        <li id="doing_counter"></li>
         <li><%= link_to 'DONE', tasks_path(:status => "DONE",:project_id => params[:project_id]) %></li>
         <li>
           <%= link_to 'New Task', new_task_url ,:class =>"btn btn-primary btn-default", :role => "button",id:"menu_new_task"  %>
