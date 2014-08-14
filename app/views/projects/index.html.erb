@@ -22,9 +22,16 @@
                 <%= link_to project.name, tasks_path(:project_id => project.id) %>
 
                 <div class="progress">
-                  <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: inherit;" >
-                   <%= project.projectProgress %>
-                  </div>
+                  <% if project.projectProgress != "0%" %>
+                      <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: inherit ;" >
+                        <%= project.projectProgress %>
+                      </div>
+                  <%else%>
+                          <div class="progress-bar progress-bar-success active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <%= project.projectProgress %> ;" >
+                            <%= project.projectProgress%>
+                      </div>
+                      <%end%>
+
                 </div>
                 <div class="admin"><%= link_to 'Edit|', edit_project_path(project) %><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></div>
               </td>

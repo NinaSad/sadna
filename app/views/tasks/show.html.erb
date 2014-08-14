@@ -48,7 +48,7 @@
 <% if @task.doc %>
     <p>
       <strong>Document:</strong>
-      <%= link_to @task.doc, "/uploads/#{@task.doc}", :target => "_blank" %>
+      <%= link_to @task.doc, "/uploads/#{@task.doc_id}", :target => "_blank" %>
     </p>
 <% end %>
 
