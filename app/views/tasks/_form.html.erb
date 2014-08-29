@@ -21,23 +21,23 @@
          <%= f.label :priority %><br>
           <select name="task[priority]" class="form-control"  >
             <% if @task.priority %>
-                <%if @task.priority == 1%>
+                <%if @task.priority == '1'%>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                 <%end%>
-                  <%if @task.priority == 2%>
+                  <%if @task.priority == '2'%>
                     <option value="2">2</option>
                     <option value="1">1</option>
                     <option value="3">3</option>
                 <%end%>
-                <%if @task.priority == 3%>
+                <%if @task.priority == '3'%>
                     <option value="3">3</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                 <%end%>
             <%else%>
-                 <option value="1">1</option>
+                <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
             <%end%>

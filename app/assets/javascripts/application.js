@@ -27,5 +27,5 @@ function countTasks(status,id){
             x+=1;
         }
     }
-    document.getElementById(id).innerHTML= " " + x + " " ;
+    document.getElementById(id).innerHTML= "=> " + x ;
 }
